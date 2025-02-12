@@ -1,0 +1,83 @@
+& when not (@fullScreen) {
+    padding-top: (@paddingTop * 1rem);
+    padding-bottom: (@paddingBottom * 1rem);
+  }
+  & when (@bg-type = 'color') {
+    background-color: @bg-value;
+  }
+  & when (@bg-type = 'image') {
+    background-image: url(@bg-value);
+  }
+  .mbr-fallback-image.disabled {
+    display: none;
+  }
+  .mbr-fallback-image {
+    display: block;
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    & when (@bg-type = 'video') {
+      background-image: url(@fallBackImage);
+    }
+  }
+  & when (@fullScreen) {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  & when (@fullWidth) {
+    .container-fluid {
+      padding: 0 70px;
+      @media (max-width: 1440px) {
+        padding: 0 48px;
+      }
+      @media (max-width: 992px) {
+        padding: 0 20px;
+      }
+    }
+  }
+  .container {
+    height: 90vh;
+    @media (max-width: 992px) {
+      padding: 0 20px;
+    }
+  }
+  .row {
+    height: 100%;
+  }
+  .content-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .title-wrapper {
+      margin-bottom: 40px;
+      .mbr-section-title {
+        margin-bottom: 56px;
+        @media (max-width: 1440px) {
+          margin-bottom: 40px;
+        }
+      }
+    }
+    .desc-wrapper {
+      .mbr-desc {
+        display: inline-block;
+        width: 40%;
+        margin-bottom: 0;
+        @media (max-width: 992px) {
+          width: 100%;
+        }
+      }
+    }
+  }
+  .mbr-section-title {
+    color: #ffffff;
+  }
+  .mbr-desc {
+    color: #000000;
+  }
+  .mbr-section-title, .mbr-section-btn {
+    color: #000000;
+  }
